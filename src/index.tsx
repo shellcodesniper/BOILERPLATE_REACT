@@ -20,7 +20,12 @@ const isProduction = (!((process.env.NODE_ENV || 'development') === 'development
 dotenv.config({ path: isProduction ? './.env' : './.env.development' });
 // NOTE READ ENVIRONMENT VARIABLE FROM .env file
 
-axios.defaults.baseURL = 'https://api.example.com';
+export interface IDotEnvProcessEnv {
+  REQUEST_BASE_URL: string;
+}
+// NOTE Dotenv 에서 정의한 값에 대한 인터페이스 코드
+
+axios.defaults.baseURL = process.env.REQUEST_BASE_URL;
 // axios.defaults.headers.common['Authorization'] = AUTH_TOKEN;
 axios.defaults.headers.post['Content-Type'] = 'application/json';
 // ? --------------------------------------------------------------

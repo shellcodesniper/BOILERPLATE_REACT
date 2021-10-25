@@ -2,7 +2,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { increaseCountAction } from '@redux/counter';
 import { IRootState } from '@root/src/Reducer';
 
-const Counter = () => {
+const Counter = (): JSX.Element => {
   const dispatch = useDispatch();
   const { count } = useSelector((state: IRootState) => state.counter);
   const increse = () => {
